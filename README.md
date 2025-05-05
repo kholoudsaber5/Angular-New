@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Mytask
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.11.
@@ -26,3 +27,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
 "# e-commerce-task" 
+=======
+# Angular-New
+>>>>>>> 798e5f3ee39bc6c52dd3ffaafb8963a710edefc4
