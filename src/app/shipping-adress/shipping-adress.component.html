@@ -1,0 +1,25 @@
+<div class="mx-auto w-50 my-5"> 
+    <form (ngSubmit)="handleshippingAdressForm(shippingAdressForm)" [formGroup]="shippingAdressForm" >
+        <h1 class="text-main my-3 h-4">Shipping Address</h1>
+        <label  class="my-3 fw-bold"  for="details">details</label>
+        <input class="form-control" type="text" id="details" formControlName ="details"/>
+        <div *ngIf="shippingAdressForm.get('details')?.invalid && shippingAdressForm.get('details')?.touched" class="text-danger">
+            <p *ngIf="shippingAdressForm.get('details')?.getError('required')" class="my-0">details is required</p></div>
+
+
+          <label class="my-3 fw-bold" for="phone">Phone</label>
+          <input class="form-control" type="tel" id="phone" formControlName="phone" />
+          <div *ngIf="shippingAdressForm.get('phone')?.touched" class="text-danger">
+              <p *ngIf="shippingAdressForm.get('phone')?.getError('required')" class="my-0">Phone is required</p>
+              <p *ngIf="shippingAdressForm.get('phone')?.getError('pattern')" class="my-0">Phone must be at least 11 numbers</p>
+          </div>
+
+
+        <label  class="my-3 fw-bold"  for="city">city</label>
+        <input class="form-control" type="text" id="city" formControlName ="city"/>
+        <div *ngIf="shippingAdressForm.get('city')?.invalid && shippingAdressForm.get('city')?.touched" class="text-danger">
+            <p *ngIf="shippingAdressForm.get('city')?.getError('required')" class="my-0">city name is required</p></div>
+
+        <button class="btn bg-main text-white d-block ms-auto my-3">Pay NOW</button>
+    </form>
+</div>

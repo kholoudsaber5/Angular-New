@@ -1,0 +1,32 @@
+<div class="w-50 mx-auto">
+    <form (ngSubmit)="handlForget(forgetPasswordForm)" [formGroup]="forgetPasswordForm">
+      <h2 class="my-3">forget password:</h2>
+      <p class="font-sm text-secondary mb-0 mt-3" >Please enter your email adress blow . we will send you a varification code to rest your password</p>
+      <p *ngIf="apiErrorMessage" class="alert alert-danger">{{ apiErrorMessage }}</p>
+     
+     
+  
+      <label class="my-3" for="email">Email</label>
+      <input formControlName="email" class="form-control" id="email" type="email" />
+      <div *ngIf="forgetPasswordForm.get('email')?.invalid && forgetPasswordForm.get('email')?.touched" class="text-danger">
+        <p *ngIf="forgetPasswordForm.get('email')?.getError('required')" class="my-0">Email is required</p>
+        <p *ngIf="forgetPasswordForm.get('email')?.getError('email')" class="my-0">Please enter a valid email</p>
+      </div>
+  
+      
+  
+      
+  <div class="d-flex justify-content-end align-items-center">
+    
+    
+  
+    <button [disabled]="forgetPasswordForm.invalid" type="submit" class="bg-main my-3 btn rounded text-light">
+      <span *ngIf="!isLoading">send</span>
+      <span *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></span>
+    </button>
+    
+  </div>
+    </form>
+  </div>
+  
+ 

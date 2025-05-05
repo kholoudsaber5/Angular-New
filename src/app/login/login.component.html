@@ -1,0 +1,36 @@
+<div class="w-50 mx-auto">
+    <form (ngSubmit)="handllogin(loginForm)" [formGroup]="loginForm">
+      <h2 class="my-3">login now:</h2>
+      <p *ngIf="apiErrorMessage" class="alert alert-danger">{{ apiErrorMessage }}</p>
+     
+     
+  
+      <label class="my-3" for="email">Email</label>
+      <input formControlName="email" class="form-control" id="email" type="email" />
+      <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
+        <p *ngIf="loginForm.get('email')?.getError('required')" class="my-0">Email is required</p>
+        <p *ngIf="loginForm.get('email')?.getError('email')" class="my-0">Please enter a valid email</p>
+      </div>
+  
+      <label class="my-3" for="password">Password</label>
+      <input formControlName="password" class="form-control" id="password" type="password" />
+      <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
+        <p *ngIf="loginForm.get('password')?.getError('required')" class="my-0">Password is required</p>
+        <p *ngIf="loginForm.get('password')?.getError('pattern')" class="my-0">Password must start with an uppercase followed by at least 5 characters</p>
+      </div>
+  
+      
+  <div class="d-flex justify-content-end align-items-center">
+    
+    <a routerLink="/forget-password" class="mx-3 text-secondary">forget password</a>
+  
+    <button [disabled]="loginForm.invalid" type="submit" class="bg-main my-3 btn rounded text-light">
+      <span *ngIf="!isLoading">login</span>
+      <span *ngIf="isLoading" class="fa-solid fa-spinner fa-spin"></span>
+    </button>
+    
+  </div>
+    </form>
+  </div>
+  
+ 
